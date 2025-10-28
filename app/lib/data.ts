@@ -163,7 +163,7 @@ export async function fetchInvoiceById(id: string) {
     return invoice[0];
   } catch (error) {
     console.error("Database Error:", error);
-    return { message: "Failed to fetch invoice." };
+    throw new Error("Failed to fetch invoice by ID.");
   }
 }
 
@@ -180,7 +180,7 @@ export async function fetchCustomers() {
     return customers;
   } catch (err) {
     console.error("Database Error:", err);
-    return { message: "Failed to fetch all customers." };
+    throw new Error("Failed to fetch customers.");
   }
 }
 
@@ -213,6 +213,6 @@ export async function fetchFilteredCustomers(query: string) {
     return customers;
   } catch (err) {
     console.error("Database Error:", err);
-    return { message: "Failed to fetch customer table." };
+    throw new Error("Failed to fetch customer table.");
   }
 }
